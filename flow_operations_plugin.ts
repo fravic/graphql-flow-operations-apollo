@@ -1,10 +1,12 @@
 import { PluginFunction, Types } from "@graphql-codegen/plugin-helpers";
 import {
   visit,
+  visitWithTypeInfo,
   concatAST,
   GraphQLSchema,
   Kind,
-  FragmentDefinitionNode
+  FragmentDefinitionNode,
+  TypeInfo
 } from "graphql";
 import { visitor } from "./visitor";
 import {
@@ -94,7 +96,11 @@ export const plugin: PluginFunction<FlowDocumentsPluginConfig> = (
     ...(config.externalFragments || [])
   ];
 
-  const visitorResult = visit(allAst, visitor(schema, config, allFragments));
+  const typeInfo = new TypeInfo(schema);
+  const visitorResult = visit(
+    allAst,
+    visitWithTypeInfo(typeInfo, visitor(schema, config, allFragments, typeInfo))
+  );
 
   return visitorResult.definitions.join("\n");
 };

@@ -3,6 +3,7 @@ query studentQuery($id: ID!) {
     #...student_fragment
     college {
       name
+      numberOfStudents
     }
   }
 }

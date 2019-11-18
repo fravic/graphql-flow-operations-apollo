@@ -34,7 +34,7 @@ import * as Types from './out/types';
     }
   },
   "directives": [],
-  "selectionSet": "id\nfullName\nmajor",
+  "selectionSet": "id: ?ID;\n\tfullName: string;\n\tmajor: Major;",
   "loc": {
     "start": 0,
     "end": 64

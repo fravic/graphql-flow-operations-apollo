@@ -6,13 +6,14 @@ import * as Types from './out/types';
 
 
 export type studentQuery_studentById_college = {
-	name;
+	name: string;
+	numberOfStudents: ?number;
 }
 
 export type studentQuery_studentById = {
-	college: studentQuery_studentById_college;
+	college: studentQuery_studentById_college
 }
 
 export type studentQuery = {
-	studentById: studentQuery_studentById;
+	studentById: studentQuery_studentById
 }

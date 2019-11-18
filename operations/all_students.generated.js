@@ -8,9 +8,9 @@ import type { student_fragmentFragment } from './student_fragment.generated';
 
 
 export type AllStudents_students = {
-	[object Object];
+	[object Object]
 }
 
 export type AllStudents = {
-	students: AllStudents_students;
+	students: AllStudents_students
 }

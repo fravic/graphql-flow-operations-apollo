@@ -18,6 +18,6 @@ enum Major {
 }
 
 type College {
-  name: String!
+  name: String
   numberOfStudents: Int!
 }
