@@ -1,0 +1,7 @@
+#import "./student_fragment.gql"
+
+query AllStudents {
+  students {
+    ...student_fragment
+  }
+}

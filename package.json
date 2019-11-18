@@ -1,0 +1,26 @@
+{
+  "name": "gql-flow-types-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "yarn tsc -p .",
+    "generate": "yarn graphql-code-generator"
+  },
+  "dependencies": {
+    "@graphql-codegen/add": "^1.8.3",
+    "@graphql-codegen/cli": "^1.8.3",
+    "@graphql-codegen/core": "^1.8.3",
+    "@graphql-codegen/flow": "^1.8.3",
+    "@graphql-codegen/near-operation-file-preset": "^1.8.3",
+    "@graphql-codegen/plugin-helpers": "^1.8.3",
+    "@graphql-codegen/visitor-plugin-common": "^1.8.3",
+    "@types/node": "^12.12.8",
+    "@types/react": "^16.9.11",
+    "auto-bind": "^3.0.0",
+    "graphql": "^14.5.8",
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2"
+  }
+}

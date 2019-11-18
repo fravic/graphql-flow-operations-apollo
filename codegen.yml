@@ -1,0 +1,12 @@
+schema: ./schema.gql
+documents: "./operations/**/*.gql"
+generates:
+  out/types.js:
+    - flow
+  operations/:
+    preset: ./dist/near_operation_file.js
+    presetConfig:
+      extension: .generated.js
+      baseTypesPath: ./out/types.js
+    plugins:
+      - ./dist/flow_operations_plugin.js
