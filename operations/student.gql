@@ -1,8 +1,6 @@
-#import "./student_fragment.gql"
-
-query student($id: ID!) {
+query studentQuery($id: ID!) {
   studentById(id: $id) {
-    ...student_fragment
+    #...student_fragment
     college {
       name
     }

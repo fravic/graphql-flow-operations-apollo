@@ -1,7 +1,9 @@
+// @flow
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
 import * as Types from './out/types';
 
 
-type $Pick<Origin: Object, Keys: Object> = $ObjMapi<Keys, <Key>(k: Key) => $ElementType<Origin, Key>>;
 
 
 
@@ -32,66 +34,7 @@ type $Pick<Origin: Object, Keys: Object> = $ObjMapi<Keys, <Key>(k: Key) => $Elem
     }
   },
   "directives": [],
-  "selectionSet": {
-    "kind": "SelectionSet",
-    "selections": [
-      {
-        "kind": "Field",
-        "name": {
-          "kind": "Name",
-          "value": "id",
-          "loc": {
-            "start": 41,
-            "end": 43
-          }
-        },
-        "arguments": [],
-        "directives": [],
-        "loc": {
-          "start": 41,
-          "end": 43
-        }
-      },
-      {
-        "kind": "Field",
-        "name": {
-          "kind": "Name",
-          "value": "fullName",
-          "loc": {
-            "start": 46,
-            "end": 54
-          }
-        },
-        "arguments": [],
-        "directives": [],
-        "loc": {
-          "start": 46,
-          "end": 54
-        }
-      },
-      {
-        "kind": "Field",
-        "name": {
-          "kind": "Name",
-          "value": "major",
-          "loc": {
-            "start": 57,
-            "end": 62
-          }
-        },
-        "arguments": [],
-        "directives": [],
-        "loc": {
-          "start": 57,
-          "end": 62
-        }
-      }
-    ],
-    "loc": {
-      "start": 37,
-      "end": 64
-    }
-  },
+  "selectionSet": "id\nfullName\nmajor",
   "loc": {
     "start": 0,
     "end": 64

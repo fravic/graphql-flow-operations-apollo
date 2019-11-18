@@ -269,6 +269,10 @@ export const preset: Types.OutputPreset<NearOperationFileConfig> = {
         );
         const plugins = [...options.plugins];
 
+        plugins.unshift({
+          add: `// @flow\n/* eslint-disable */\n// This file was automatically generated and should not be edited.`
+        });
+
         const config = {
           ...options.config,
           // This is set here in order to make sure the fragment spreads sub types

@@ -6,7 +6,7 @@ import {
   Kind,
   FragmentDefinitionNode
 } from "graphql";
-import { FlowDocumentsVisitor } from "./visitor";
+import { visitor } from "./visitor";
 import {
   RawDocumentsConfig,
   LoadedFragment,
@@ -76,14 +76,12 @@ export const plugin: PluginFunction<FlowDocumentsPluginConfig> = (
   const documents = config.flattenGeneratedTypes
     ? optimizeOperations(schema, rawDocuments)
     : rawDocuments;
-  let prefix = `type $Pick<Origin: Object, Keys: Object> = $ObjMapi<Keys, <Key>(k: Key) => $ElementType<Origin, Key>>;\n`;
 
   const allAst = concatAST(
     documents.reduce((prev, v) => {
       return [...prev, v.content];
     }, [])
   );
-
   const allFragments: LoadedFragment[] = [
     ...(allAst.definitions.filter(
       d => d.kind === Kind.FRAGMENT_DEFINITION
@@ -96,9 +94,7 @@ export const plugin: PluginFunction<FlowDocumentsPluginConfig> = (
     ...(config.externalFragments || [])
   ];
 
-  const visitorResult = visit(allAst, {
-    leave: new FlowDocumentsVisitor(schema, config, allFragments)
-  });
+  const visitorResult = visit(allAst, visitor(schema, config, allFragments));
 
-  return [prefix, ...visitorResult.definitions].join("\n");
+  return visitorResult.definitions.join("\n");
 };
