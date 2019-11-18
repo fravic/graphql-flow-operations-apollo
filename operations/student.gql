@@ -3,5 +3,8 @@
 query student($id: ID!) {
   studentById(id: $id) {
     ...student_fragment
+    college {
+      name
+    }
   }
 }

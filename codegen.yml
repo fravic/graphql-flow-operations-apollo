@@ -8,5 +8,8 @@ generates:
     presetConfig:
       extension: .generated.js
       baseTypesPath: ./out/types.js
+    config:
+      preResolveTypes: true
+      namingConvention: keep
     plugins:
       - ./dist/flow_operations_plugin.js

@@ -8,10 +8,15 @@ type Student {
   id: ID!
   fullName: String
   major: Major
+  college: College
 }
 
 enum Major {
   BIOLOGY
   ENGINEERING
   SCIENCE
+}
+
+type College {
+  name: String
 }
