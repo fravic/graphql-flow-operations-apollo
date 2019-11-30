@@ -5,8 +5,13 @@ import * as Types from '../out/types';
 
 
 
+export type student_fragment_college = {
+	name: string;
+}
+
 export type student_fragment = {
-	id: ?Types.Scalars.ID;
+	id: $ElementType<Types.Scalars, 'ID'> | null;
 	fullName: string;
 	major: Types.Major;
+	college: student_fragment_college;
 }

@@ -2,4 +2,7 @@ fragment student_fragment on Student {
   id
   fullName
   major
+  college {
+    name
+  }
 }

@@ -9,11 +9,11 @@ import type { student_fragment } from './student_fragment.generated';
 
 export type studentQuery_studentById_college = {
 	name: string;
-	numberOfStudents: ?number;
+	numberOfStudents: number | null;
 }
 
 export type studentQuery_studentById = {
-	...student_fragment
+	...student_fragment;
 	college: studentQuery_studentById_college;
 }
 

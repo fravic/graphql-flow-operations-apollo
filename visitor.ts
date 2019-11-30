@@ -76,7 +76,7 @@ export const visitor = (
     },
 
     FragmentSpread(node: FragmentSpreadNode): string {
-      return `...${node.name.value}`;
+      return `...${node.name.value};`;
     },
 
     OperationDefinition(node: OperationDefinitionNode) {
@@ -114,7 +114,11 @@ function nameFromAncestors(ancestors: ASTNode[]): string {
   // A node's name is a concatenation of its ancestor Field's names
   return ancestors
     .map(a => {
-      if (a.kind === "Field" || a.kind === "OperationDefinition") {
+      if (
+        a.kind === "Field" ||
+        a.kind === "OperationDefinition" ||
+        a.kind === "FragmentDefinition"
+      ) {
         return (a as FieldNode).name.value;
       }
       return null;
@@ -126,7 +130,7 @@ function nameFromAncestors(ancestors: ASTNode[]): string {
 function outputForType(type: GraphQLOutputType) {
   let output = "";
   if (isNonNullType(type)) {
-    output += "?" + outputForType(type.ofType);
+    output += `${outputForType(type.ofType)} | null`;
   } else if (isEnumType(type)) {
     output += outputForEnumType(type);
   } else if (isScalarType(type)) {
@@ -147,9 +151,12 @@ function outputForScalarType(type: GraphQLScalarType) {
     case "String":
       return "string";
     case "Int":
+    case "Float":
       return "number";
+    case "Boolean":
+      return "boolean";
     default:
       // Must be a custom scalar
-      return `Types.Scalars.${name}`;
+      return `$ElementType<Types.Scalars, '${name}'>`;
   }
 }
