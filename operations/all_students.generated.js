@@ -1,16 +1,16 @@
 // @flow
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
-import * as Types from './out/types';
+import * as Types from '../out/types';
 
-import type { student_fragmentFragment } from './student_fragment.generated';
+import type { student_fragment } from './student_fragment.generated';
 
 
 
 export type AllStudents_students = {
-	[object Object]
+	...student_fragment
 }
 
 export type AllStudents = {
-	students: AllStudents_students
+	students: AllStudents_students;
 }

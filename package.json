@@ -7,6 +7,7 @@
   "scripts": {
     "build": "yarn tsc -p .",
     "generate": "yarn graphql-code-generator",
+    "clean": "rm operations/**.generated.js",
     "apollo": "apollo client:codegen --localSchemaFile=schema.gql --target=flow --includes=operations/**/*.gql"
   },
   "dependencies": {

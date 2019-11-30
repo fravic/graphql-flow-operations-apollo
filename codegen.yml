@@ -7,8 +7,9 @@ generates:
     preset: ./dist/near_operation_file.js
     presetConfig:
       extension: .generated.js
-      baseTypesPath: ./out/types.js
+      baseTypesPath: ../out/types.js
     config:
+      dedupeOperationSuffix: true
       preResolveTypes: true
       namingConvention: keep
     plugins:
